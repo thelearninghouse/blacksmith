@@ -27,7 +27,16 @@ namespace Blacksmith.Core
                 _client = client;
                 Name = typeof(TMessage).GetQueueName();
             }
-
+            
+            /// <summary>
+            /// Sets the queue name, overriding default (class name)
+            /// </summary>
+            /// <param name="name"></param>
+            /// <returns></returns>           
+            public void SetQueueName(string name) {
+                Name = name;
+            }
+            
             /// <summary>
             /// Use this method to handle scenarios where the queue is perceived to be empty. There may still be some defered messages in the queue or messages waiting to timeout.
             /// </summary>
